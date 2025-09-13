@@ -7,6 +7,7 @@ import {
   Table,
   ActionIcon,
   Checkbox,
+  Badge,
 } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
 import { useState } from "react";
@@ -43,6 +44,13 @@ export default function TodoTablePage() {
         </ActionIcon>
       </Table.Td>
       {/* เพิ่ม row assignees ตรงนี้*/}
+      <Table.Td>
+        {task.assignees.map((assignee) => (
+          <Badge variant="light" size="sm" color="cyan">
+            {assignee}
+          </Badge>
+        ))}
+      </Table.Td>
     </Table.Tr>
   ));
 
@@ -70,6 +78,7 @@ export default function TodoTablePage() {
               <Table.Th>Due Date</Table.Th>
               <Table.Th>Completed</Table.Th>
               <Table.Th>Actions</Table.Th>
+              <Table.Th>Assignees</Table.Th>
               {/* เพิ่ม table header assignees ตรงนี้*/}
             </Table.Tr>
           </Table.Thead>
